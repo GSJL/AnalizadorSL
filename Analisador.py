@@ -3,8 +3,8 @@ class Analizador:
     __constantes = []
     __operadores = []
     __variables = []
-    __stack_cons = []
-    __stack_op = []
+    __stack_c = []
+    __stack_o = []
     __ind_op = 0
     __ind_const = 0
 
@@ -15,14 +15,10 @@ class Analizador:
                     or operacion[i]== '(' or operacion[i]== ')'or operacion[i]== '=':
                 self.__operadores.append(operacion[i])
             elif ord(operacion[i]) > 47 and ord(operacion[i])< 58:
-                res = ""
-                while ord(operacion[i]) > 47 and ord(operacion[i])< 58:
-                    res+= operacion[i]
-                    i+= 1
-                i -= 1
-                self.__constantes.append(res)
+                self.__constantes.append(operacion[i])
             elif operacion[i] != " ":
                 self.__variables.append(operacion[i])
+
 
 
     def printTest(self):
