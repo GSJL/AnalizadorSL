@@ -3,21 +3,33 @@ class Analizador:
     __constantes = []
     __operadores = []
     __variables = []
-    __stack_c = []
-    __stack_o = []
-    __ind_op = 0
-    __ind_const = 0
+    __list_v = []
+    __ord = []
+
 
     def separateSymbols(self, operacion):
         operacion += " "
-        for i in range(len(operacion)):
+        i = 0
+        while i < (len(operacion)):
             if operacion[i] == '+' or operacion[i]== '-' or operacion[i]== '*' or operacion[i]== '/' \
                     or operacion[i]== '(' or operacion[i]== ')'or operacion[i]== '=':
                 self.__operadores.append(operacion[i])
+                self.__ord.append(1)
             elif ord(operacion[i]) > 47 and ord(operacion[i])< 58:
-                self.__constantes.append(operacion[i])
+                res = ""
+                while ord(operacion[i]) > 47 and ord(operacion[i])< 58:
+                    res+= operacion[i]
+                    i+=1
+                i-=1
+                self.__constantes.append(res)
+                self.__ord.append(2)
             elif operacion[i] != " ":
                 self.__variables.append(operacion[i])
+                self.__ord.append(3)
+            elif operacion[i] == '=':
+                self.__list_v.append(operacion[i+1])
+                self.__ord.append(4)
+            i+=1
 
 
 
@@ -25,6 +37,7 @@ class Analizador:
         print(self.__constantes)
         print(self.__operadores)
         print(self.__variables)
+        print(self.__list_v)
         print('final')
 
 
