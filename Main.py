@@ -1,7 +1,10 @@
 import sys
-
+from Analizador import myClass as Lex
+from tkinter import Tk
+from tkinter.filedialog import askopenfilename
 from PyQt5.QtWidgets import *
 from GUI.home import  *
+
 class Main(QMainWindow):
 
     def __init__(self):
@@ -11,13 +14,11 @@ class Main(QMainWindow):
         self.home.setupUi(self)
         # Eventos
         self.home.bt_lexico.clicked.connect(self.ev_lexico)
-        self.home.bt_sintactico.clicked.connect(self.ev_sintactico)
 
         self.home.bt_archivo.clicked.connect(self.ev_archivo)
         self.home.bt_limpiar.clicked.connect(self.ev_limpiar)
 
-        #Desarrollandores
-        #Desarrollando por Maryon Torres y Michael Abril
+        #Desarrollandoresl
 
     def ev_lexico(self):
         '''
@@ -27,29 +28,24 @@ class Main(QMainWindow):
         pass
 
 
-    def ev_sintactico(self):
-        '''
-        Manejo de analisis gramatico
-        :return:
-        '''
-        # print("sintactico")
-        pass
-
     def ev_archivo(self):
         '''
         Manejo de subir archivo
         :return:
         '''
-        dlg = QFileDialog()
-
-        if dlg.exec_():
-            filenames = dlg.selectedFiles()
-            f = open(filenames[0], 'r')
-
-            with f:
-                data = f.read().strip()
+        try:
+            Tk().withdraw()
+            filename = askopenfilename()
+            data = []
+            with open(filename, 'r') as f:
+                for line in f:
+                    data.append(line.rstrip())
                 if data:
-                    self.home.tx_ingreso.setText(data+"\n")
+                    Lex.Analizar(Lex, data)
+                else:
+                    print("Archivo no apto")
+        except:
+            print("Error")
 
     def ev_limpiar(self):
         '''

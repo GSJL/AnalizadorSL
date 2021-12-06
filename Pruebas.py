@@ -1,6 +1,15 @@
-from Analisador import Analizador as Lex
+from Analizador import myClass as Lex
+from tkinter import Tk
+from tkinter.filedialog import askopenfilename
 
-numero = input("Ingrese su operacion: ")
-
-Lex.separateSymbols(Lex, numero)
-Lex.printTest(Lex)
+print("Archivo....")
+Tk().withdraw()
+filename = askopenfilename()
+data = []
+with open(filename, 'r') as f:
+    for line in f:
+        data.append(line.rstrip())
+    if data:
+        Lex.Analizar(Lex, data)
+    else:
+        print("Archivo no apto")
