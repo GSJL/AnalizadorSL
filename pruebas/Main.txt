@@ -1,0 +1,9 @@
+Class main{
+x = 5;
+y = 6;
+z = 6 + 1;
+printf x ;
+printf y ;
+printf Z ;
+printf (x+y) ;
+}
