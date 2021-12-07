@@ -56,7 +56,9 @@ class myClass:
         cad = cad.replace(";","")
         for i in range(len(self.variable)):
             if self.variable[i] in cad:
-                cad = cad.replace(self.variable[i], self.contenido[i])
+                cad = cad.replace(self.variable[i], str(self.contenido[i]))
+        if "+" in cad or "-" in cad or "*" in cad or "/" in cad:
+            cad = eval(cad)
         print(cad)
 
     def comp(self, x):
@@ -85,25 +87,16 @@ class myClass:
                                 if "*" in self.contenido[self.apuntador] or "/" in self.contenido[self.apuntador] or "+" in self.contenido[self.apuntador] or "-" in self.contenido[self.apuntador]:
                                     self.exprecion(myClass)
 
-                                print("[" + self.contenido[self.apuntador] + "]" + "<---" + self.variable[self.apuntador])
+                                print("[" + str(self.contenido[self.apuntador]) + "]" + "<---" + self.variable[self.apuntador])
                                 self.apuntador += 1
                     else:
                         self.error(myClass, "Falta ;")
 
     def exprecion(self):
-        ope = []
-        cons = []
-        rest = 0
-        apu1 = 0
-        apu2 = 0
-        for i in self.contenido[self.apuntador]:
-            if ord(i) > 47 and ord(i) < 58:
-                cons.append(i)
-            else:
-                ope.append(i)
-            cons = list(map(int,cons))
-        print(cons)
-        print(ope)
-        if
+        x = 0
+        res = eval(str(self.contenido[self.apuntador]))
+        self.contenido[self.apuntador] = res
+
+
 
 

@@ -1,9 +1,10 @@
 Class main{
 x = 5;
 y = 6;
-z = 6 + 1;
+z = (6 + 1) * 4;
 printf x ;
 printf y ;
-printf Z ;
+printf z ;
 printf (x+y) ;
+printf hola mundo;
 }
