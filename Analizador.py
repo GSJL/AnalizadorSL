@@ -43,13 +43,13 @@ class myClass:
             while x[0][i] != "{":
                 if i > 60:
                     self.error(myClass, "No se encotro llave de apertura ")
-                    self. classname = ""
+                    self.classname = ""
                     break
                 else:
                     self.classname += str(x[0][i])
                 i+=1
             print("Class name: " + self.classname)
-            self.comp(myClass, x)
+            self.resultado = ("Class name: " + self.classname + "")
 
         else:
             print("Class name")
@@ -102,6 +102,7 @@ class myClass:
                             sys.exit()
                         else:
                             self.error(myClass, "Falta ;")
+        return self.resultado
 
     def exprecion(self):
         x = 0
