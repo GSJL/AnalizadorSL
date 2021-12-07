@@ -18,8 +18,6 @@ class Main(QMainWindow):
         self.home.bt_archivo.clicked.connect(self.ev_archivo)
         self.home.bt_limpiar.clicked.connect(self.ev_limpiar)
 
-        #Desarrollandoresl
-
     def ev_lexico(self):
         '''
         Manejo de analisis de expresion lexemas
@@ -43,7 +41,7 @@ class Main(QMainWindow):
             with open(filename, 'r') as f:
                 for line in f:
                     data.append(line.rstrip())
-                    #self.tx_ingreso.setPlainText(line.rstrip())
+                    #self.tx_ingreso.setPlainText(str(line.rstrip()))
                 if data:
                     Lex.Analizar(Lex, data)
                 else:
