@@ -90,7 +90,10 @@ class myClass:
                                 print("[" + str(self.contenido[self.apuntador]) + "]" + "<---" + self.variable[self.apuntador])
                                 self.apuntador += 1
                     else:
-                        self.error(myClass, "Falta ;")
+                        if x[i] == "}":
+                            sys.exit()
+                        else:
+                            self.error(myClass, "Falta ;")
 
     def exprecion(self):
         x = 0
