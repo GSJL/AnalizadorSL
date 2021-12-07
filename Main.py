@@ -25,7 +25,10 @@ class Main(QMainWindow):
         Manejo de analisis de expresion lexemas
         :return:
         '''
-        pass
+        try:
+            Lex.Analizar(Lex, self.tx_ingreso.text())
+        except:
+            print("compilar")
 
 
     def ev_archivo(self):
@@ -33,28 +36,32 @@ class Main(QMainWindow):
         Manejo de subir archivo
         :return:
         '''
-        try:
-            Tk().withdraw()
-            filename = askopenfilename()
-            data = []
-            with open(filename, 'r') as f:
-                for line in f:
-                    data.append(line.rstrip())
-                if data:
-                    Lex.Analizar(Lex, data)
-                else:
-                    print("Archivo no apto")
-        except:
-            print("Error")
+       # try:
+        Tk().withdraw()
+        filename = askopenfilename()
+        data = []
+        with open(filename, 'r') as f:
+            for line in f:
+                data.append(line.rstrip())
+            if data:
+                self.tx_ingreso.setText(data)
+                Lex.Analizar(Lex, self.tx_ingreso.Text())
+            else:
+                print("Archivo no apto")
+        """except:
+            print("Error")"""
 
     def ev_limpiar(self):
         '''
         Manejo de limpieza de campos
         :return:
         '''
-        self.home.tx_ingreso.setText('')
-        self.home.tx_lexico.setText('')
-        self.home.tx_sintactico.setText('')
+        try:
+            self.home.tx_ingreso.setText('')
+            self.home.tx_lexico.setText('')
+            self.home.tx_sintactico.setText('')
+        except:
+            print("limpiar")
 
 
 

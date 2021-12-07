@@ -1,5 +1,13 @@
 from tkinter import messagebox
 import sys
+
+"""
+Cadena Garcia Maria Fernanda - 2173330048
+Francisco Ramirez Daniel - 2173330010
+Garcia Serrano Jorge Luis - 2173330050
+Rodriguez Hernandez Alejandro - 2173330037
+Olguin Trejo Javier Eduardo - 2173330027
+"""
 class myClass:
     __palabrasReservadas= {1:"class",
                            2:"void",
