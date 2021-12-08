@@ -49,7 +49,7 @@ class myClass:
                     self.classname += str(x[0][i])
                 i+=1
             print("Class name: " + self.classname)
-            self.resultado = ("Class name: " + self.classname + "")
+            self.comp(myClass, x)
 
         else:
             print("Class name")
