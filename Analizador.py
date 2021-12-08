@@ -1,7 +1,7 @@
 from tkinter import messagebox
 import sys
 
-"""
+""" EQUIPO 4
 Cadena Garcia Maria Fernanda - 2173330048
 Francisco Ramirez Daniel - 2173330010
 Garcia Serrano Jorge Luis - 2173330050
