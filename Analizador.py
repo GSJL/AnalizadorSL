@@ -76,7 +76,10 @@ class myClass:
                 for i in range(len(x)):
                     if i == 0:
                         continue
+                    if x[i] == "}":
+                        sys.exit()
                     if "=" in x[i] or "printf" and ";" in x[i]:
+
                         if "printf" in x[i]:
                             self.printf(myClass,x[i])
                             continue
@@ -97,12 +100,8 @@ class myClass:
 
                                 print("[" + str(self.contenido[self.apuntador]) + "]" + "<---" + self.variable[self.apuntador])
                                 self.apuntador += 1
-
                     else:
-                        if x[i] == "}":
-                            sys.exit()
                         self.error(myClass, "Falta ;")
-                        sys.exit()
 
 
     def exprecion(self):
